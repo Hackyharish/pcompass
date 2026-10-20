@@ -15,21 +15,21 @@ dist/
 venv/
 ENV/
 
-# Prompt Compass runtime cache, lockfile backups, and local setup test artifacts
-.promptcompass/
+# Prompt Compass runtime cache, lockfile backups, and local setup test artifacts (root level only)
+/.promptcompass/
 *.bak
-.mcp.json
-.claude/
-.codex/
-.gemini/
-.agents/
-.agent/
-.cursor/
-.vscode/
-.windsurf/
-.devin/
-.opencode/
-opencode.json
-opencode.jsonc
-.github/hooks/
-.github/skills/
+/.mcp.json
+/.claude/
+/.codex/
+/.gemini/
+/.agents/
+/.agent/
+/.cursor/
+/.vscode/
+/.windsurf/
+/.devin/
+/.opencode/
+/opencode.json
+/opencode.jsonc
+/.github/hooks/
+/.github/skills/

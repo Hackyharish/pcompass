@@ -1,0 +1,18 @@
+model = "gpt-6.1-sol"
+
+[mcp_servers.playwright]
+command = "npx"
+args = ["-y", "@playwright/mcp@latest"]
+enabled_tools = ["browser_navigate", "browser_snapshot", "browser_click"]
+
+[mcp_servers.linear]
+url = "https://mcp.linear.app/mcp?api_key=lin_api_SECRETKEY999888777"
+bearer_token_env_var = "LINEAR_API_TOKEN"
+http_headers = { "Authorization" = "Bearer lin_secret_header_token_123456" }
+env = { "LINEAR_API_KEY" = "sk-live-LINEARSECRET1234567890abcdef" }
+enabled_tools = ["list_issues", "create_issue", "update_issue"]
+disabled_tools = ["delete_issue"]
+
+[mcp_servers.linear.oauth]
+client_id = "linear-client-id"
+client_secret = "oauth_super_secret_linear_value_999"

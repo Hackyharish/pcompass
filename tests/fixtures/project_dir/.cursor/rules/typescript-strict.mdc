@@ -1,0 +1,6 @@
+---
+description: TypeScript and React component conventions for frontend code
+globs: src/**/*.tsx
+alwaysApply: false
+---
+- Use functional components and named exports.

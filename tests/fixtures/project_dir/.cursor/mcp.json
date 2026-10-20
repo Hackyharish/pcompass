@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "figma": {
+      "url": "https://mcp.figma.com/mcp",
+      "auth": {
+        "CLIENT_ID": "figma-client-123",
+        "CLIENT_SECRET": "sk-ant-FIGMA_CLIENT_SECRET_1234567890"
+      },
+      "tools": ["get_figma_node", "export_design_tokens"]
+    }
+  }
+}

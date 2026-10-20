@@ -1,0 +1,20 @@
+{
+  "mcp": {
+    "excluded": ["excluded-experimental"]
+  },
+  "mcpServers": {
+    "sentry": {
+      "command": "npx",
+      "args": ["-y", "@sentry/mcp-server"],
+      "env": {
+        "SENTRY_AUTH_TOKEN": "sntrys_SUPER_SECRET_SENTRY_TOKEN_12345"
+      },
+      "includeTools": ["list_error_events", "get_issue_stacktrace", "dangerous_delete"],
+      "excludeTools": ["dangerous_delete"]
+    },
+    "excluded-experimental": {
+      "command": "node",
+      "args": ["exp.js"]
+    }
+  }
+}

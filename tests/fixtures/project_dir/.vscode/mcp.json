@@ -1,0 +1,22 @@
+{
+  // VS Code MCP config with comments (JSONC)
+  "inputs": [
+    {
+      "type": "promptString",
+      "id": "api-key",
+      "description": "API Key",
+      "password": true
+    }
+  ],
+  "servers": {
+    "openapi-explorer": {
+      "type": "stdio",
+      "command": "uvx",
+      "args": ["mcp-openapi-explorer"],
+      "env": {
+        "OPENAPI_SECRET_KEY": "sk-proj-OPENAPISECRET1234567890abcdef"
+      },
+      "tools": ["list_endpoints", "validate_openapi_spec"]
+    }
+  }
+}
