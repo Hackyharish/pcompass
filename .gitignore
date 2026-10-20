@@ -1,0 +1,35 @@
+# Byte-compiled / cache
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+*.egg
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+
+# Prompt Compass runtime cache, lockfile backups, and local setup test artifacts
+.promptcompass/
+*.bak
+.mcp.json
+.claude/
+.codex/
+.gemini/
+.agents/
+.agent/
+.cursor/
+.vscode/
+.windsurf/
+.devin/
+.opencode/
+opencode.json
+opencode.jsonc
+.github/hooks/
+.github/skills/

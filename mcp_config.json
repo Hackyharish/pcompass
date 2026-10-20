@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "pcompass": {
+      "command": "pcompass-mcp",
+      "args": []
+    }
+  }
+}

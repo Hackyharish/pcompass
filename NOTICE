@@ -1,0 +1,12 @@
+Prompt Compass (`pcompass`)
+Copyright (c) 2026 Prompt Compass Contributors
+
+Prompt Compass is an clean-room implementation written from scratch in Python 3.10+.
+We gratefully acknowledge conceptual inspiration and open ecosystem standards from:
+
+- `severity1/claude-code-prompt-improver` (MIT License): Bypass prefix conventions (`*`, `/`, `#`) and progressive-disclosure hook ergonomics.
+- `hussi9/skill-router` (MIT License): Empirical demonstration of lexical routing over large `SKILL.md` inventories.
+- `keshrath/agent-discover` (MIT License): Consent-first MCP server discovery principles.
+- `mikeparcewski/wicked-garden` (MIT License): Stdlib-only hook engineering and atomic config backup discipline.
+- `vercel-labs/skills` & Agent Skills Open Standard (MIT License): The `.agents/skills/` and `SKILL.md` specification.
+- Model Context Protocol Registry (`modelcontextprotocol/registry`, Apache-2.0 License): Canonical MCP server discovery API (`registry.modelcontextprotocol.io`).

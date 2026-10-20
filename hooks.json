@@ -1,0 +1,19 @@
+{
+  "pcompass": {
+    "enabled": true,
+    "SessionStart": [
+      {
+        "type": "command",
+        "command": "pcompass hook antigravity --event sessionStart",
+        "timeout": 5
+      }
+    ],
+    "PreInvocation": [
+      {
+        "type": "command",
+        "command": "pcompass hook antigravity --event PreInvocation",
+        "timeout": 5
+      }
+    ]
+  }
+}

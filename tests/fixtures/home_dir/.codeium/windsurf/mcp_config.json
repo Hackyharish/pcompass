@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "slack": {
+      "command": "npx",
+      "args": ["-y", "@anthropic/mcp-server-slack"],
+      "env": {
+        "SLACK_BOT_TOKEN": "xoxb-123456789012-123456789012-SlackSecretTokenABC"
+      },
+      "tools": ["post_message", "list_channels"],
+      "disabledTools": ["delete_channel"]
+    }
+  }
+}

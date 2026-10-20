@@ -1,0 +1,5 @@
+{
+  "$schema": "https://antigravity.google/schemas/v1/plugin.json",
+  "name": "pcompass",
+  "description": "Cross-agent prompt router, capability inventory, and security-gated recommender for AI coding agents."
+}

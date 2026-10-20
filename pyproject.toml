@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pcompass"
+version = "0.1.0"
+description = "Cross-agent prompt router, unified capability inventory, and security-gated recommender for AI coding agents."
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [
+  { name = "Prompt Compass Contributors" }
+]
+keywords = ["ai-agents", "mcp", "agent-skills", "prompt-router", "claude-code", "codex", "antigravity", "opencode", "cursor", "copilot", "windsurf"]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Developers",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+]
+
+[project.urls]
+Homepage = "https://github.com/Hackyharish/pcompass"
+Repository = "https://github.com/Hackyharish/pcompass"
+Issues = "https://github.com/Hackyharish/pcompass/issues"
+
+[project.scripts]
+pcompass = "pcompass.cli:main"
+pcompass-mcp = "pcompass.mcp_server.server:main"
+
+[tool.setuptools]
+packages = [
+  "pcompass",
+  "pcompass.core",
+  "pcompass.adapters",
+  "pcompass.recommend",
+  "pcompass.mcp_server",
+]

@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "github-actions": {
+      "command": "npx",
+      "args": ["-y", "@github/github-mcp-server", "--header", "Authorization: Bearer ghp_CLIARGSSECRET1234567890abcdef"],
+      "env": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "ghp_ENVSECRET1234567890abcdef123456"
+      },
+      "tools": ["list_workflow_runs", "get_job_logs"]
+    }
+  }
+}

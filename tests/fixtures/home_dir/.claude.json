@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "postgres": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-postgres", "postgresql://admin:SuperSecretDbPass123@localhost:5432/prod"],
+      "env": {
+        "PGPASSWORD": "SuperSecretDbPass123",
+        "DATABASE_URL": "postgresql://admin:SuperSecretDbPass123@localhost:5432/prod"
+      },
+      "tools": ["query_database", "describe_table"]
+    }
+  }
+}

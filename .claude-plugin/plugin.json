@@ -1,0 +1,7 @@
+{
+  "name": "pcompass",
+  "version": "0.1.0",
+  "description": "Cross-agent prompt router, capability inventory, and security-gated recommender for AI coding agents.",
+  "repository": "https://github.com/Hackyharish/pcompass",
+  "license": "MIT"
+}

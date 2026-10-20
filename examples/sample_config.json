@@ -1,0 +1,9 @@
+{
+  "mode": "suggest",
+  "max_added_tokens": 400,
+  "top_k_routes": 5,
+  "min_route_score": 1.2,
+  "hook_timeout_ms": 1500,
+  "recommend_enabled": true,
+  "disabled_capabilities": []
+}
