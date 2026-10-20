@@ -442,6 +442,62 @@ def parse_mcp_json_file(config_path: Path, agent: str, scope: str) -> list[Capab
     return records
 
 
+def _fallback_parse_codex_toml(text: str) -> dict[str, Any]:
+    """Zero-dependency fallback parser for Codex config.toml when tomllib is unavailable (<3.11)."""
+    data: dict[str, Any] = {"mcp_servers": {}}
+    current_key: str | None = None
+    sub_key: str | None = None
+
+    for raw_line in text.splitlines():
+        line = raw_line.strip()
+        if not line or line.startswith("#"):
+            continue
+
+        header_match = re.match(r"^\[mcp_servers\.([a-zA-Z0-9_-]+)(?:\.([a-zA-Z0-9_-]+))?\]", line)
+        if header_match:
+            current_key = header_match.group(1)
+            sub_key = header_match.group(2)
+            if current_key not in data["mcp_servers"]:
+                data["mcp_servers"][current_key] = {}
+            if sub_key and sub_key not in data["mcp_servers"][current_key]:
+                data["mcp_servers"][current_key][sub_key] = {}
+            continue
+
+        if current_key is None or "=" not in line:
+            continue
+
+        k, v = [x.strip() for x in line.split("=", 1)]
+        target_dict = data["mcp_servers"][current_key]
+        if sub_key:
+            target_dict = target_dict[sub_key]
+
+        if v.startswith("[") and v.endswith("]"):
+            inside = v[1:-1].strip()
+            if not inside:
+                target_dict[k] = []
+            else:
+                items: list[str] = []
+                for token in re.findall(r'"([^"]*)"|\'([^\']*)\'', inside):
+                    items.append(token[0] or token[1])
+                target_dict[k] = items
+        elif v.startswith("{") and v.endswith("}"):
+            inside = v[1:-1].strip()
+            nested: dict[str, str] = {}
+            for pair in re.findall(r'["\']?([a-zA-Z0-9_-]+)["\']?\s*=\s*["\']?([^"\',}]+)["\']?', inside):
+                nested[pair[0].strip()] = pair[1].strip()
+            target_dict[k] = nested
+        elif (v.startswith('"') and v.endswith('"')) or (v.startswith("'") and v.endswith("'")):
+            target_dict[k] = v[1:-1]
+        elif v.lower() == "true":
+            target_dict[k] = True
+        elif v.lower() == "false":
+            target_dict[k] = False
+        else:
+            target_dict[k] = v
+
+    return data
+
+
 def parse_codex_toml_file(config_path: Path, scope: str) -> list[CapabilityRecord]:
     """Parse [mcp_servers] from OpenAI Codex CLI config.toml without storing secrets."""
     try:
@@ -456,6 +512,8 @@ def parse_codex_toml_file(config_path: Path, scope: str) -> list[CapabilityRecor
             data = tomllib.loads(text)
         except Exception:
             data = {}
+    else:
+        data = _fallback_parse_codex_toml(text)
 
     mcp_servers = data.get("mcp_servers")
     if not isinstance(mcp_servers, dict):
