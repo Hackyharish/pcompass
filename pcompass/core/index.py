@@ -118,6 +118,8 @@ def detect_project_signals(project_dir: Path) -> ProjectSignals:
         signals.git_host = "github"
 
     git_cfg = project_dir / ".git" / "config"
+    if not git_cfg.is_file():
+        git_cfg = project_dir / "git_dir" / "config"
     if git_cfg.is_file():
         try:
             g_text = git_cfg.read_text(encoding="utf-8", errors="replace")[:8192].lower()

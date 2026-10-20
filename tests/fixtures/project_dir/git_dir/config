@@ -1,0 +1,2 @@
+[remote "origin"]
+	url = git@github.com:example-org/demo-service.git
